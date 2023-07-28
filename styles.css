@@ -1,0 +1,312 @@
+:root {
+    --x: 5px;
+    --y: 5px;
+    --after-content:radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), hsla(0, 0%, 100%, 1), transparent 7vmin);
+    --rotation: 360deg;
+  }  
+
+body
+{
+    background-color: #0F0F0F;
+}
+body h1 
+{
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin-top: 50px;
+}
+body div 
+{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body div div.content
+{
+    width: 400px;
+    height: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; 
+    justify-content: center;
+    align-items: center;
+}
+body div section div#nav
+{
+    width: 120px;
+    height: 120px;
+    background-color: rgb(109, 111, 113);
+    display: grid;
+    justify-content: center;
+    border-radius: 80px;
+    position: relative;
+    overflow: hidden;
+}
+body div section div#nav:hover
+{
+    --active: 1;
+}
+body div section div#nav::after
+{
+    content: ".";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: var(--after-content);
+    background-attachment: fixed;
+    opacity: var(--active, 0);
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+body div section div#nav div
+{
+    border: #0F0F0F 9px solid;
+    width: 90px;
+    background-color: #0F0F0F;
+    color: white;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 80px;
+    z-index: 2;
+}
+body div section div#nav div:hover
+{
+    --active: 1;
+    animation: gradiend .5s ease-in-out forwards ;
+}
+body div section div#nav div::after
+{
+    content: ".";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), hsla(0, 0%, 100%, 0.45), transparent 7vmin);
+    background-attachment: fixed;
+    opacity: var(--active, 0);
+    transition: opacity 0.2s;
+    z-index: 4;
+    pointer-events: none;
+}
+body div div#nav div i 
+{
+    color: azure;
+    z-index: 2;
+}
+body div div#nav div i svg
+{
+    width: 80%;
+    height: 80%;
+    padding: 5%;
+    fill: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+body div div.content section
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body div div.content section#click
+{
+    z-index: 2;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+body div div.content section#top
+{
+    z-index: 1;
+    top: 133px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+body div div.content section#left
+{
+    z-index: 1;
+    left: 133px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+body div div.content section#right
+{
+    z-index: 1;
+    right: 133px;
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+body div div.content section#botton
+{
+    z-index: 1;
+    bottom: 133px;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    
+}
+
+
+.active
+{
+    opacity: 1 !important;
+}
+
+.none
+{
+    display: none;
+    opacity: 1;
+}
+@keyframes Top 
+{
+    0% 
+    {
+        top: 0px;
+    }
+    100% 
+    {
+        top: -133px;
+    }
+    
+}
+@keyframes Top2 
+{
+    0% 
+    {
+        top: -133px;
+    }
+    100% 
+    {
+        top: 0px;
+        
+    }
+    
+}
+@keyframes Left 
+{
+    0% 
+    {
+        left: 0px;
+    }
+    100% 
+    {
+        left: -133px;
+    }
+    
+}
+@keyframes Left2 
+{
+    0% 
+    {
+        left: -133px;
+    }
+    100% 
+    {
+        left: 0px;
+        
+    }
+    
+}
+@keyframes Right 
+{
+    0% 
+    {
+        right: 0px;
+    }
+    100% 
+    {
+        right: -133px;
+    }
+    
+}
+@keyframes Right2 
+{
+    0% 
+    {
+        right: -133px;
+    }
+    100% 
+    {
+        right: 0px;
+        
+    }
+    
+}
+@keyframes Botton 
+{
+    0% 
+    {
+        bottom: 0px;
+    }
+    100% 
+    {
+        bottom: -133px;
+    }
+    
+}
+@keyframes Botton2 
+{
+    0% 
+    {
+        bottom: -133px;
+    }
+    100% 
+    {
+        bottom: 0px;
+        
+    }
+    
+}
+@keyframes gradiend 
+{
+    0% 
+    {
+        background-color: #0F0F0F;
+        z-index: 2;
+    }
+    100% 
+    {
+        background-color: rgb(2, 2, 2);
+        z-index: 2;
+    }
+}
+@keyframes rotate
+{
+    0% 
+    {
+        transform: rotateZ(0deg);
+    }
+    100% 
+    {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes identifierInverse
+{
+    0% 
+    {
+        transform: rotateZ(360deg);
+    }
+    100% 
+    {
+        transform: rotateZ(0deg);
+    }
+    
+}
+@keyframes opacity
+{
+    0% 
+    {
+        opacity: .6;
+    }
+    100% 
+    {
+        opacity: 1;
+    }
+}
+  
